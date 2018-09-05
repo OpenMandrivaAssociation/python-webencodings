@@ -17,6 +17,7 @@ BuildRequires:  python2-setuptools
 
 BuildRequires:  python3-devel
 BuildRequires:  python-setuptools
+BuildRequires:  python2-pkg-resources
 
 %description
 python-webencodings
