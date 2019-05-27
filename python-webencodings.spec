@@ -2,7 +2,7 @@
 %global pypi_name webencodings
 
 Name:           python-%{pypi_name}
-Version:        0.5
+Version:        0.5.1
 Release:        1
 Summary:        Character encoding aliases for legacy web content
 Group:          Development/Python
@@ -85,24 +85,24 @@ In ...
 
 
 %prep
-%setup -n %{pypi_name}-%{version}
+%autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 cp -a . %{py3dir}
 
 %build
 %{__python2} setup.py build
-pushd %{py3dir}
+cd %{py3dir}
 %{__python3} setup.py build
-popd
+cd -
 
 %install
 # Must do the subpackages' install first because the scripts in /usr/bin are
 # overwritten with every setup.py install.
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
-pushd %{py3dir}
+cd %{py3dir}
 %{__python3} setup.py install --skip-build --root %{buildroot}
-popd
+cd -
 
 %files -n python2-%{pypi_name}
 %doc README.rst
@@ -113,19 +113,3 @@ popd
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
-
-
-
-%changelog
-* Sat Dec 10 2016 daviddavid <daviddavid> 0.5-2.mga6
-+ Revision: 1074046
-- fix release tag
-
-* Thu Dec 08 2016 shlomif <shlomif> 0.5-1.mga6
-+ Revision: 1073308
-- add group and remove trail space
-- importing from pyp2rpm
-
-
-* Thu Dec 08 2016 Shlomi Fish <shlomif@shlomifish.org> - 0.5-1
-- Initial package.
