@@ -62,24 +62,24 @@ http://pypi.python.org/pypi/webencodings
 In ...
 
 %prep
-%setup -n %{pypi_name}-%{version}
+%autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 cp -a . %{py3dir}
 
 %build
 %{__python2} setup.py build
-pushd %{py3dir}
+cd %{py3dir}
 %{__python3} setup.py build
-popd
+cd -
 
 %install
 # Must do the subpackages' install first because the scripts in /usr/bin are
 # overwritten with every setup.py install.
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
-pushd %{py3dir}
+cd %{py3dir}
 %{__python3} setup.py install --skip-build --root %{buildroot}
-popd
+cd -
 
 %files -n python2-%{pypi_name}
 %doc README.rst
