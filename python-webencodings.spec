@@ -15,7 +15,7 @@ BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
 
-BuildRequires:  python3-devel
+BuildRequires:  pkgconfig(python)
 BuildRequires:  python-setuptools
 BuildRequires:  python2-pkg-resources
 
@@ -62,7 +62,7 @@ http://pypi.python.org/pypi/webencodings
 In ...
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%autosetup
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 cp -a . %{py3dir}
