@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.5.1
-Release:        1
+Release:        2
 Summary:        Character encoding aliases for legacy web content
 Group:          Development/Python
 
@@ -17,6 +17,7 @@ BuildRequires:  python2-setuptools
 
 BuildRequires:  python3-devel
 BuildRequires:  python-setuptools
+BuildRequires:  python2-pkg-resources
 
 %description
 python-webencodings
@@ -60,30 +61,6 @@ http://pypi.python.org/pypi/webencodings
 * Python 2.6+ and 3.3+
 In ...
 
-%package -n     python-%{pypi_name}
-Summary:        %{summary}
-%{?python_provide:%python_provide python3-%{pypi_name}}
-
-%description -n python-%{pypi_name}
-python-webencodings
-===================
-
-This is a Python implementation of the
-`WHATWG Encoding standard
-<http://encoding.spec.whatwg.org/>`_.
-
-* Latest
-documentation: http://packages.python.org/webencodings/
-* Source code and issue
-tracker:
-  https://github.com/gsnedders/python-webencodings
-* PyPI releases:
-http://pypi.python.org/pypi/webencodings
-* License: BSD
-* Python 2.6+ and 3.3+
-In ...
-
-
 %prep
 %autosetup -n %{pypi_name}-%{version}
 # Remove bundled egg-info
@@ -109,7 +86,7 @@ cd -
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
-%files -n python-%{pypi_name}
+%files
 %doc README.rst
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
