@@ -2,7 +2,7 @@
 
 Name:			python-%{pypi_name}
 Version:	0.5.1
-Release:	6
+Release:	7
 Summary:	Character encoding aliases for legacy web content
 Group:		Development/Python
 License:	BSD-3-Clause
