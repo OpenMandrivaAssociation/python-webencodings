@@ -35,7 +35,7 @@ http://pypi.python.org/pypi/webencodings
 In ...
 
 %prep
-%autosetup -p1
+%autosetup -n %{pypi_name}-%{version} -p1
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
