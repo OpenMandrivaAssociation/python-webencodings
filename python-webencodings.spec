@@ -1,8 +1,8 @@
 %global pypi_name webencodings
 
 Name:			python-%{pypi_name}
-Version:	0.5.1
-Release:	7
+Version:	0.6.1
+Release:	1
 Summary:	Character encoding aliases for legacy web content
 Group:		Development/Python
 License:	BSD-3-Clause
