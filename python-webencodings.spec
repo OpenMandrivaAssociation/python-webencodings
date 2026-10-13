@@ -2,7 +2,7 @@
 
 Name:			python-%{pypi_name}
 Version:	0.6.1
-Release:	1
+Release:	2
 Summary:	Character encoding aliases for legacy web content
 Group:		Development/Python
 License:	BSD-3-Clause
@@ -11,7 +11,7 @@ Source0:	https://files.pythonhosted.org/packages/source/w/%{pypi_name}/%{pypi_na
 BuildSystem:		python
 BuildArch:			noarch
 BuildRequires:	pkgconfig
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 
